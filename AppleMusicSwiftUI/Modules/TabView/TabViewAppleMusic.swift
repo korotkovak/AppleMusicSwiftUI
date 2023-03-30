@@ -11,7 +11,7 @@ struct TabViewAppleMusic: View {
     var body: some View {
         HStack {
             TabView {
-                MediaLibrary()
+                MediaView()
                     .tabItem {
                         Label("Медиатека",
                               systemImage: "play.square.stack.fill")
@@ -29,10 +29,10 @@ struct TabViewAppleMusic: View {
             }
             .accentColor(Color.red)
             .onAppear() {
-                UITabBar.appearance().backgroundColor = UIColor.systemGray6
+                UITabBar.appearance().backgroundColor = Colors.gray
             }
             .safeAreaInset(edge: .bottom) {
-                PlayerWindow()
+                PlayerView()
             }
         }
     }

@@ -7,36 +7,37 @@
 
 import SwiftUI
 
-struct PlayerWindow: View {
+struct PlayerView: View {
     var body: some View {
         VStack {
             ZStack(alignment: .leading) {
                 Rectangle()
-                    .fill(Color(uiColor: UIColor.systemGray6))
+                    .fill(Color(uiColor: Colors.gray))
+
                 HStack(spacing: 0) {
-                    Image("queen")
+                    Image("music_plug")
                         .resizable()
                         .aspectRatio(contentMode: .fill)
-                        .frame(width: 50, height: 50)
-                        .shadow(radius: 7)
-                        .cornerRadius(4)
-                    Text("Queen")
+                        .frame(width: 52, height: 52)
+                        .cornerRadius(5)
+                        .shadow(color: Color.init(uiColor: UIColor.systemGray4), radius: 5)
+                    Text("Не исполняется")
                         .lineLimit(1)
                         .padding(.horizontal, 15)
                     Spacer(minLength: 0)
                     Button {
-
+                        //тут пока пусто
                     } label: {
-                        Image(systemName: "pause.fill")
+                        Image(systemName: "play.fill")
                             .font(.title2)
                             .foregroundColor(Color.black)
                     }
                     Button {
-
+                        //тут пока пусто
                     } label: {
                         Image(systemName: "forward.fill")
                             .font(.title2)
-                            .foregroundColor(Color.black)
+                            .foregroundColor(Color.gray)
                     }
                     .padding(.leading, 25)
                 }
@@ -53,6 +54,6 @@ struct PlayerWindow: View {
 
 struct PlayerWindow_Previews: PreviewProvider {
     static var previews: some View {
-        PlayerWindow()
+        PlayerView()
     }
 }
