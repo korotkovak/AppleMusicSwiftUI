@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct MediaLibrary: View {
+struct MediaPlug: View {
     var body: some View {
         VStack(spacing: 5) {
             Text("Ищите свою музыку?")
@@ -22,6 +22,6 @@ struct MediaLibrary: View {
 
 struct MediaLibrary_Previews: PreviewProvider {
     static var previews: some View {
-        MediaLibrary()
+        MediaPlug()
     }
 }
