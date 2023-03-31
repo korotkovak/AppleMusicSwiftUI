@@ -13,23 +13,29 @@ struct TabViewAppleMusic: View {
             TabView {
                 MediaView()
                     .tabItem {
-                        Label("Медиатека",
-                              systemImage: "play.square.stack.fill")
+                        Label(
+                            Constants.titleMedia,
+                            systemImage: Images.iconMedia
+                        )
                     }
-                Text("Радио")
+                Text(Constants.titleRadio)
                     .tabItem {
-                        Label("Радио",
-                              systemImage: "dot.radiowaves.left.and.right")
+                        Label(
+                            Constants.titleRadio,
+                            systemImage: Images.iconRadio
+                        )
                     }
-                Text("Поиск")
+                Text(Constants.titleSearch)
                     .tabItem {
-                        Label("Поиск",
-                              systemImage: "magnifyingglass")
+                        Label(
+                            Constants.titleSearch,
+                            systemImage: Images.iconSearch
+                        )
                     }
             }
             .accentColor(Color.red)
             .onAppear() {
-                UITabBar.appearance().backgroundColor = Colors.gray
+                UITabBar.appearance().backgroundColor = Colors.grayTabBar
             }
             .safeAreaInset(edge: .bottom) {
                 PlayerView()
@@ -42,4 +48,16 @@ struct TabViewAppleMusic_Previews: PreviewProvider {
     static var previews: some View {
         TabViewAppleMusic()
     }
+}
+
+fileprivate enum Constants {
+    static let titleMedia = "Медиатека"
+    static let titleRadio = "Радио"
+    static let titleSearch = "Поиск"
+}
+
+fileprivate enum Images {
+    static let iconMedia = "play.square.stack.fill"
+    static let iconRadio = "dot.radiowaves.left.and.right"
+    static let iconSearch = "magnifyingglass"
 }

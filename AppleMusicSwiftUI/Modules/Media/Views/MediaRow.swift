@@ -16,20 +16,20 @@ struct MediaRow: View {
             HStack {
                 Image(
                     systemName: model.isSelected ?
-                    "checkmark.circle.fill" : "circle"
+                    Images.checkmarkFill : Images.circle
                 )
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .foregroundColor(
                     model.isSelected ?
-                    Color.red : Color.init(uiColor: UIColor.systemGray4)
+                    Colors.red : Colors.darkGray
                 )
                 .frame(width: 22, height: 22)
 
                 Image(systemName: model.icon)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .foregroundColor(Color.red)
+                    .foregroundColor(Colors.red)
                     .frame(width: 22, height: 22)
                     .padding(.horizontal, 15)
 
@@ -47,9 +47,23 @@ struct MediaRow: View {
 
 struct MediaRow_Previews: PreviewProvider {
     static var previews: some View {
-        MediaRow(model: Model(icon: "music.note.list",
-                              title: "Плейлисты",
-                              isSelected: false))
+        MediaRow(
+            model: Model(
+                icon: Images.musicNote,
+                title: Constants.title,
+                isSelected: false
+            )
+        )
         .padding()
     }
+}
+
+fileprivate enum Constants {
+    static let title = "Плейлисты"
+}
+
+fileprivate enum Images {
+    static let checkmarkFill = "checkmark.circle.fill"
+    static let circle = "circle"
+    static let musicNote = "music.note.list"
 }

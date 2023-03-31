@@ -12,32 +12,32 @@ struct PlayerView: View {
         VStack {
             ZStack(alignment: .leading) {
                 Rectangle()
-                    .fill(Color(uiColor: Colors.gray))
+                    .fill(Colors.gray)
 
                 HStack(spacing: 0) {
-                    Image("music_plug")
+                    Image(Images.iconMusicPlug)
                         .resizable()
                         .aspectRatio(contentMode: .fill)
                         .frame(width: 52, height: 52)
                         .cornerRadius(5)
-                        .shadow(color: Color.init(uiColor: UIColor.systemGray4), radius: 5)
-                    Text("Не исполняется")
+                        .shadow(color: Colors.darkGray, radius: 5)
+                    Text(Constants.title)
                         .lineLimit(1)
                         .padding(.horizontal, 15)
                     Spacer(minLength: 0)
                     Button {
                         //тут пока пусто
                     } label: {
-                        Image(systemName: "play.fill")
+                        Image(systemName: Images.iconPlay)
                             .font(.title2)
-                            .foregroundColor(Color.black)
+                            .foregroundColor(Colors.black)
                     }
                     Button {
                         //тут пока пусто
                     } label: {
-                        Image(systemName: "forward.fill")
+                        Image(systemName: Images.iconForward)
                             .font(.title2)
-                            .foregroundColor(Color.gray)
+                            .foregroundColor(Colors.grayForText)
                     }
                     .padding(.leading, 25)
                 }
@@ -56,4 +56,14 @@ struct PlayerWindow_Previews: PreviewProvider {
     static var previews: some View {
         PlayerView()
     }
+}
+
+fileprivate enum Constants {
+    static let title = "Не исполняется"
+}
+
+fileprivate enum Images {
+    static let iconMusicPlug = "music_plug"
+    static let iconPlay = "play.fill"
+    static let iconForward = "forward.fill"
 }
