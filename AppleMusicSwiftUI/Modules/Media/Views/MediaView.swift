@@ -22,15 +22,16 @@ struct MediaView: View {
                     MediaPlug()
                 }
             }
-            .navigationTitle("Медиатека")
+            .navigationTitle(Constants.title)
             .navigationBarItems(
                 trailing: Button {
                     isEditing.toggle()
                     editMode = isEditing ? .active : .inactive
                 } label: {
-                    Text(isEditing ? "Готово" : "Править")
+                    Text(isEditing ?
+                         Constants.doneButton : Constants.editButton)
                         .fontWeight(.bold)
-                        .foregroundColor(Color.red)
+                        .foregroundColor(Colors.red)
                 })
             .environment(\.editMode, $editMode)
         }
@@ -43,3 +44,8 @@ struct LibraryView_Previews: PreviewProvider {
     }
 }
 
+fileprivate enum Constants {
+    static let editButton = "Править"
+    static let doneButton = "Готово"
+    static let title = "Медиатека"
+}

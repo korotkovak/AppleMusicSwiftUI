@@ -12,15 +12,25 @@ struct Model: Identifiable, Hashable{
     var icon: String
     var title: String
     var isSelected: Bool
-
-    init(id: String = UUID().uuidString, icon: String, title: String, isSelected: Bool) {
+    
+    init(
+        id: String = UUID().uuidString,
+        icon: String,
+        title: String,
+        isSelected: Bool
+    ) {
         self.id = id
         self.icon = icon
         self.title = title
         self.isSelected = isSelected
     }
-
+    
     func updateCompletion() -> Model {
-        Model(id: id,icon: icon, title: title, isSelected: !isSelected)
+        Model(
+            id: id,
+            icon: icon,
+            title: title,
+            isSelected: !isSelected
+        )
     }
 }

@@ -10,11 +10,11 @@ import SwiftUI
 struct MediaPlug: View {
     var body: some View {
         VStack(spacing: 5) {
-            Text("Ищите свою музыку?")
+            Text(Constants.title)
                 .font(.title2)
                 .fontWeight(.bold)
-            Text("Здесь появится купленная Вами в iTunes Store музыка.")
-                .foregroundColor(Color.gray)
+            Text(Constants.description)
+                .foregroundColor(Colors.grayForText)
                 .multilineTextAlignment(.center)
         }
     }
@@ -24,4 +24,9 @@ struct MediaLibrary_Previews: PreviewProvider {
     static var previews: some View {
         MediaPlug()
     }
+}
+
+fileprivate enum Constants {
+    static let title = "Ищите свою музыку?"
+    static let description = "Здесь появится купленная Вами в iTunes Store музыка."
 }
