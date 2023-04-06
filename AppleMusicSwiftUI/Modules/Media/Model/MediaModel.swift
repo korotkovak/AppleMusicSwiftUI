@@ -7,11 +7,11 @@
 
 import Foundation
 
-struct Model: Identifiable, Hashable{
+struct MediaModel: Identifiable, Hashable {
     let id: String
-    var icon: String
-    var title: String
-    var isSelected: Bool
+    let icon: String
+    let title: String
+    let isSelected: Bool
     
     init(
         id: String = UUID().uuidString,
@@ -25,8 +25,8 @@ struct Model: Identifiable, Hashable{
         self.isSelected = isSelected
     }
     
-    func updateCompletion() -> Model {
-        Model(
+    func updateCompletion() -> MediaModel {
+        MediaModel(
             id: id,
             icon: icon,
             title: title,

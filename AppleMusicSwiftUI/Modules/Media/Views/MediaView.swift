@@ -34,6 +34,7 @@ struct MediaView: View {
                         .foregroundColor(Colors.red)
                 })
             .environment(\.editMode, $editMode)
+            .padding(.bottom, 80)
         }
     }
 }

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MediaRow: View {
 
-    var model: Model
+    var model: MediaModel
 
     var body: some View {
         VStack(alignment: .leading, spacing: -10.0) {
@@ -19,7 +19,7 @@ struct MediaRow: View {
                     Images.checkmarkFill : Images.circle
                 )
                 .resizable()
-                .aspectRatio(contentMode: .fit)
+                .scaledToFit()
                 .foregroundColor(
                     model.isSelected ?
                     Colors.red : Colors.darkGray
@@ -28,7 +28,7 @@ struct MediaRow: View {
 
                 Image(systemName: model.icon)
                     .resizable()
-                    .aspectRatio(contentMode: .fit)
+                    .scaledToFit()
                     .foregroundColor(Colors.red)
                     .frame(width: 22, height: 22)
                     .padding(.horizontal, 15)
@@ -48,7 +48,7 @@ struct MediaRow: View {
 struct MediaRow_Previews: PreviewProvider {
     static var previews: some View {
         MediaRow(
-            model: Model(
+            model: MediaModel(
                 icon: Images.musicNote,
                 title: Constants.title,
                 isSelected: false

@@ -9,80 +9,80 @@ import Foundation
 
 class MediaViewModel: ObservableObject {
 
-    @Published var data = [Model]()
+    @Published var mediaModelArray = [MediaModel]()
 
     init() {
-        getMedia()
+        getData()
     }
 
-    func getMedia() {
+    func getData() {
         let newData = [
-            Model(
+            MediaModel(
                 icon: "music.note.list",
                 title: "Плейлисты",
                 isSelected: false
             ),
-            Model(
+            MediaModel(
                 icon: "music.mic",
                 title: "Артисты",
                 isSelected: false
             ),
-            Model(
+            MediaModel(
                 icon: "rectangle.stack",
                 title: "Альбомы",
                 isSelected: false
             ),
-            Model(
+            MediaModel(
                 icon: "music.note",
                 title: "Песни",
                 isSelected: false
             ),
-            Model(
+            MediaModel(
                 icon: "tv",
                 title: "Телешоу и фильмы",
                 isSelected: false
             ),
-            Model(
+            MediaModel(
                 icon: "music.note.tv",
                 title: "Видеоклипы",
                 isSelected: false
             ),
-            Model(
+            MediaModel(
                 icon: "guitars",
                 title: "Жанры",
                 isSelected: false
             ),
-            Model(
+            MediaModel(
                 icon: "person.2.crop.square.stack",
                 title: "Сборники",
                 isSelected: false
             ),
-            Model(
+            MediaModel(
                 icon: "music.quarternote.3",
                 title: "Авторы",
                 isSelected: false
             ),
-            Model(
+            MediaModel(
                 icon: "arrow.down.circle",
                 title: "Загружено",
                 isSelected: false
             ),
-            Model(
+            MediaModel(
                 icon: "house",
                 title: "Коллекция",
                 isSelected: false
             )
         ]
-        data.append(contentsOf: newData)
+        mediaModelArray.append(contentsOf: newData)
     }
 
     func move(from source: IndexSet, to destination: Int) {
-        data.move(fromOffsets: source, toOffset: destination)
+        mediaModelArray.move(fromOffsets: source, toOffset: destination)
     }
 
-    func update(model: Model) {
-        if let index = data.firstIndex(where: { $0.id == model.id }) {
-            data[index] = model.updateCompletion()
+    func update(model: MediaModel) {
+        if let index = mediaModelArray.firstIndex(where: { $0.id == model.id }) {
+            mediaModelArray[index] = model.updateCompletion()
         }
     }
 }

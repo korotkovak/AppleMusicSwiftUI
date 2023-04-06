@@ -9,37 +9,35 @@ import SwiftUI
 
 struct TabViewAppleMusic: View {
     var body: some View {
-        HStack {
-            TabView {
-                MediaView()
-                    .tabItem {
-                        Label(
-                            Constants.titleMedia,
-                            systemImage: Images.iconMedia
-                        )
-                    }
-                Text(Constants.titleRadio)
-                    .tabItem {
-                        Label(
-                            Constants.titleRadio,
-                            systemImage: Images.iconRadio
-                        )
-                    }
-                Text(Constants.titleSearch)
-                    .tabItem {
-                        Label(
-                            Constants.titleSearch,
-                            systemImage: Images.iconSearch
-                        )
-                    }
-            }
-            .accentColor(Color.red)
-            .onAppear() {
-                UITabBar.appearance().backgroundColor = Colors.grayTabBar
-            }
-            .safeAreaInset(edge: .bottom) {
-                PlayerView()
-            }
+        TabView {
+            MediaView()
+                .tabItem {
+                    Label(
+                        Constants.titleMedia,
+                        systemImage: Images.iconMedia
+                    )
+                }
+            RadioView()
+                .tabItem {
+                    Label(
+                        Constants.titleRadio,
+                        systemImage: Images.iconRadio
+                    )
+                }
+            Text(Constants.titleSearch)
+                .tabItem {
+                    Label(
+                        Constants.titleSearch,
+                        systemImage: Images.iconSearch
+                    )
+                }
+        }
+        .accentColor(Color.red)
+        .onAppear() {
+            UITabBar.appearance().backgroundColor = Colors.grayTabBar
+        }
+        .safeAreaInset(edge: .bottom) {
+            PlayerView()
         }
     }
 }
