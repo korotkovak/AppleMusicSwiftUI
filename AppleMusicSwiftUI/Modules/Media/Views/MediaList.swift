@@ -13,7 +13,7 @@ struct MediaList: View {
 
     var body: some View {
         List {
-            ForEach(mediaViewModel.data) { mediaModel in
+            ForEach(mediaViewModel.mediaModelArray) { mediaModel in
                 MediaRow(model: mediaModel)
                     .onTapGesture {
                         withAnimation {

@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C12CCEE229DD8C4F0027F593 /* RadioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C12CCEE129DD8C4F0027F593 /* RadioView.swift */; };
+		C12CCEE429DDA1720027F593 /* RadioModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C12CCEE329DDA1720027F593 /* RadioModel.swift */; };
+		C12CCEE629DDA2CE0027F593 /* RadioViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C12CCEE529DDA2CE0027F593 /* RadioViewModel.swift */; };
+		C12CCEF629DDCBE10027F593 /* RadioPlaylistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C12CCEF529DDCBE10027F593 /* RadioPlaylistView.swift */; };
+		C12CCEF829DDCC1B0027F593 /* RadioStationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C12CCEF729DDCC1B0027F593 /* RadioStationsView.swift */; };
 		C143A37829D5A16F00B86503 /* MediaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C143A37729D5A16F00B86503 /* MediaViewModel.swift */; };
 		C18CF5B929D488C800CCC443 /* AppleMusicSwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18CF5B829D488C800CCC443 /* AppleMusicSwiftUIApp.swift */; };
 		C18CF5BB29D488C800CCC443 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18CF5BA29D488C800CCC443 /* ContentView.swift */; };
@@ -24,6 +29,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C12CCEE129DD8C4F0027F593 /* RadioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioView.swift; sourceTree = "<group>"; };
+		C12CCEE329DDA1720027F593 /* RadioModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioModel.swift; sourceTree = "<group>"; };
+		C12CCEE529DDA2CE0027F593 /* RadioViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioViewModel.swift; sourceTree = "<group>"; };
+		C12CCEF529DDCBE10027F593 /* RadioPlaylistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioPlaylistView.swift; sourceTree = "<group>"; };
+		C12CCEF729DDCC1B0027F593 /* RadioStationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioStationsView.swift; sourceTree = "<group>"; };
 		C143A37729D5A16F00B86503 /* MediaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaViewModel.swift; sourceTree = "<group>"; };
 		C18CF5B529D488C800CCC443 /* AppleMusicSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppleMusicSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C18CF5B829D488C800CCC443 /* AppleMusicSwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleMusicSwiftUIApp.swift; sourceTree = "<group>"; };
@@ -53,6 +63,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C12CCEEB29DDA92C0027F593 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C12CCEE129DD8C4F0027F593 /* RadioView.swift */,
+				C12CCEF529DDCBE10027F593 /* RadioPlaylistView.swift */,
+				C12CCEF729DDCC1B0027F593 /* RadioStationsView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		C12CCEEC29DDA9330027F593 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C12CCEE329DDA1720027F593 /* RadioModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C12CCEED29DDA9380027F593 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				C12CCEE529DDA2CE0027F593 /* RadioViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		C12CCEEE29DDA94D0027F593 /* Radio */ = {
+			isa = PBXGroup;
+			children = (
+				C12CCEEC29DDA9330027F593 /* Model */,
+				C12CCEED29DDA9380027F593 /* ViewModel */,
+				C12CCEEB29DDA92C0027F593 /* Views */,
+			);
+			path = Radio;
+			sourceTree = "<group>";
+		};
 		C143A37529D5A15600B86503 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -65,6 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				C143A37929D5A39400B86503 /* Media */,
+				C12CCEEE29DDA94D0027F593 /* Radio */,
 				C18CF5D529D48EDC00CCC443 /* Player */,
 				C18CF5D329D48E6A00CCC443 /* TabView */,
 			);
@@ -244,15 +291,20 @@
 				C18CF5DE29D55DCB00CCC443 /* EditMode + Ext.swift in Sources */,
 				C18CF5E129D571C500CCC443 /* Colors.swift in Sources */,
 				C18CF5D229D48E3D00CCC443 /* MediaList.swift in Sources */,
+				C12CCEE429DDA1720027F593 /* RadioModel.swift in Sources */,
 				C18CF5BB29D488C800CCC443 /* ContentView.swift in Sources */,
 				C18CF5D029D48A7200CCC443 /* TabViewAppleMusic.swift in Sources */,
+				C12CCEE629DDA2CE0027F593 /* RadioViewModel.swift in Sources */,
 				C18CF5CA29D489D900CCC443 /* MediaView.swift in Sources */,
+				C12CCEE229DD8C4F0027F593 /* RadioView.swift in Sources */,
 				C18CF5D829D4914900CCC443 /* MediaModel.swift in Sources */,
 				C18CF5DB29D4942700CCC443 /* MediaRow.swift in Sources */,
 				C18CF5CC29D48A3600CCC443 /* PlayerView.swift in Sources */,
+				C12CCEF629DDCBE10027F593 /* RadioPlaylistView.swift in Sources */,
 				C18CF5CE29D48A5800CCC443 /* MediaPlug.swift in Sources */,
 				C143A37829D5A16F00B86503 /* MediaViewModel.swift in Sources */,
 				C18CF5B929D488C800CCC443 /* AppleMusicSwiftUIApp.swift in Sources */,
+				C12CCEF829DDCC1B0027F593 /* RadioStationsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
