@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C1220ADD29EA93E40036BCAD /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1220ADC29EA93E40036BCAD /* SearchView.swift */; };
+		C1220ADF29EAF6E20036BCAD /* DetailSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1220ADE29EAF6E20036BCAD /* DetailSearchView.swift */; };
 		C12CCEE229DD8C4F0027F593 /* RadioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C12CCEE129DD8C4F0027F593 /* RadioView.swift */; };
 		C12CCEE429DDA1720027F593 /* RadioModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C12CCEE329DDA1720027F593 /* RadioModel.swift */; };
 		C12CCEE629DDA2CE0027F593 /* RadioViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C12CCEE529DDA2CE0027F593 /* RadioViewModel.swift */; };
@@ -29,6 +31,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C1220ADC29EA93E40036BCAD /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		C1220ADE29EAF6E20036BCAD /* DetailSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailSearchView.swift; sourceTree = "<group>"; };
 		C12CCEE129DD8C4F0027F593 /* RadioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioView.swift; sourceTree = "<group>"; };
 		C12CCEE329DDA1720027F593 /* RadioModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioModel.swift; sourceTree = "<group>"; };
 		C12CCEE529DDA2CE0027F593 /* RadioViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioViewModel.swift; sourceTree = "<group>"; };
@@ -63,6 +67,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C1220AD829EA93910036BCAD /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				C1220AD929EA93B10036BCAD /* Model */,
+				C1220ADA29EA93B50036BCAD /* ViewModel */,
+				C1220ADB29EA93BA0036BCAD /* Views */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		C1220AD929EA93B10036BCAD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C1220ADA29EA93B50036BCAD /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		C1220ADB29EA93BA0036BCAD /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C1220ADC29EA93E40036BCAD /* SearchView.swift */,
+				C1220ADE29EAF6E20036BCAD /* DetailSearchView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		C12CCEEB29DDA92C0027F593 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -112,6 +149,7 @@
 			children = (
 				C143A37929D5A39400B86503 /* Media */,
 				C12CCEEE29DDA94D0027F593 /* Radio */,
+				C1220AD829EA93910036BCAD /* Search */,
 				C18CF5D529D48EDC00CCC443 /* Player */,
 				C18CF5D329D48E6A00CCC443 /* TabView */,
 			);
@@ -297,7 +335,9 @@
 				C12CCEE629DDA2CE0027F593 /* RadioViewModel.swift in Sources */,
 				C18CF5CA29D489D900CCC443 /* MediaView.swift in Sources */,
 				C12CCEE229DD8C4F0027F593 /* RadioView.swift in Sources */,
+				C1220ADF29EAF6E20036BCAD /* DetailSearchView.swift in Sources */,
 				C18CF5D829D4914900CCC443 /* MediaModel.swift in Sources */,
+				C1220ADD29EA93E40036BCAD /* SearchView.swift in Sources */,
 				C18CF5DB29D4942700CCC443 /* MediaRow.swift in Sources */,
 				C18CF5CC29D48A3600CCC443 /* PlayerView.swift in Sources */,
 				C12CCEF629DDCBE10027F593 /* RadioPlaylistView.swift in Sources */,
