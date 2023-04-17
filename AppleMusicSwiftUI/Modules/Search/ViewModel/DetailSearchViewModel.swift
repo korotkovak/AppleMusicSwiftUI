@@ -8,15 +8,15 @@
 import Foundation
 
 class DetailSearchViewModel: ObservableObject {
-
+    
     @Published var detailPaylistData = [DetailSearchModel]()
     @Published var detailSecondRowData = [DetailSearchModel]()
-
+    
     init() {
         getPaylistData()
         getSecondRowData()
     }
-
+    
     func getPaylistData() {
         let data = [
             DetailSearchModel(
@@ -58,7 +58,7 @@ class DetailSearchViewModel: ObservableObject {
         ]
         detailPaylistData.append(contentsOf: data)
     }
-
+    
     func getSecondRowData() {
         let data = [
             DetailSearchModel(

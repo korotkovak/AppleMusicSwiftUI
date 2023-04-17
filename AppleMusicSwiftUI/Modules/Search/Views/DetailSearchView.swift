@@ -20,7 +20,7 @@ struct DetailSearchView: View {
         VStack {
             VStack {
                 HStack {
-                    Text("Зимнее время")
+                    Text(Constants.navigationTitle)
                         .font(.largeTitle)
                         .fontWeight(.bold)
                         .padding()
@@ -30,11 +30,11 @@ struct DetailSearchView: View {
                 ScrollView() {
                     playlistView
                     DetaiSecondlRowPlaylist(
-                        titleHeader: "Подборка для тебя",
-                        labelButton: "См.все"
+                        titleHeader: Constants.headerTitleFirst,
+                        labelButton: Constants.titleButton
                     )
                     DetaiSecondlRowPlaylist(
-                        titleHeader: "Все хиты в одном месте",
+                        titleHeader: Constants.headerTitleSecond,
                         labelButton: ""
                     )
                 }
@@ -48,17 +48,17 @@ struct DetailSearchView: View {
                         dismiss()
                     } label: {
                         HStack {
-                            Image(systemName: "chevron.backward")
+                            Image(systemName: Constants.imageChevronBackward)
                                 .foregroundColor(Colors.red)
                         }
                     }
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
-                        print("")
+                        print("tupped navigationBarTrailing")
                     } label: {
                         HStack {
-                            Image(systemName: "ellipsis.circle.fill")
+                            Image(systemName: Constants.imageEllipsisCircle)
                                 .foregroundColor(Colors.red)
                         }
                     }
@@ -98,6 +98,15 @@ struct DetailSearchView: View {
             .padding(.leading, 20)
         }
     }
+}
+
+fileprivate enum Constants {
+    static let navigationTitle = "Зимнее время"
+    static let headerTitleFirst = "Подборка для тебя"
+    static let titleButton = "См.все"
+    static let headerTitleSecond = "Все хиты в одном месте"
+    static let imageChevronBackward = "chevron.backward"
+    static let imageEllipsisCircle = "ellipsis.circle.fill"
 }
 
 struct DetailSearchView_Previews: PreviewProvider {

@@ -23,13 +23,13 @@ struct SearchView: View {
                 textField
                 category
             }
-            .navigationTitle("Поиск")
+            .navigationTitle(Constants.navigationTitle)
             .padding(.bottom, 80)
         }
     }
 
     var textField: some View {
-        TextField("Ваша Медиатека", text: $text)
+        TextField(Constants.placeholderTextField, text: $text)
             .padding(10)
             .padding(.horizontal, 30)
             .background(Colors.gray)
@@ -38,7 +38,7 @@ struct SearchView: View {
             .padding(.horizontal, 18)
             .overlay {
                 HStack {
-                    Image(systemName: "magnifyingglass")
+                    Image(systemName: Constants.imageSearch)
                         .foregroundColor(Colors.grayForText)
                         .frame(
                             minWidth: 20,
@@ -58,7 +58,7 @@ struct SearchView: View {
                 spacing: 14
             ) {
                 Section(
-                    header: Text("Поиск по категориям")
+                    header: Text(Constants.sectionHeader)
                         .font(.title2)
                         .fontWeight(.bold)
                 ) {
@@ -80,6 +80,13 @@ struct SearchView: View {
             .padding()
         }
     }
+}
+
+fileprivate enum Constants {
+    static let navigationTitle = "Поиск"
+    static let placeholderTextField = "Ваша Медиатека"
+    static let imageSearch = "magnifyingglass"
+    static let sectionHeader = "Поиск по категориям"
 }
 
 struct SearchView_Previews: PreviewProvider {
