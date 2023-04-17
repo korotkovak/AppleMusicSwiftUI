@@ -26,7 +26,7 @@
 		C18CF5D229D48E3D00CCC443 /* MediaList.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18CF5D129D48E3D00CCC443 /* MediaList.swift */; };
 		C18CF5D829D4914900CCC443 /* MediaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18CF5D729D4914900CCC443 /* MediaModel.swift */; };
 		C18CF5DB29D4942700CCC443 /* MediaRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18CF5DA29D4942700CCC443 /* MediaRow.swift */; };
-		C18CF5DE29D55DCB00CCC443 /* EditMode + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18CF5DD29D55DCB00CCC443 /* EditMode + Ext.swift */; };
+		C18CF5DE29D55DCB00CCC443 /* EditMode+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18CF5DD29D55DCB00CCC443 /* EditMode+Ext.swift */; };
 		C18CF5E129D571C500CCC443 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18CF5E029D571C500CCC443 /* Colors.swift */; };
 /* End PBXBuildFile section */
 
@@ -52,7 +52,7 @@
 		C18CF5D129D48E3D00CCC443 /* MediaList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaList.swift; sourceTree = "<group>"; };
 		C18CF5D729D4914900CCC443 /* MediaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaModel.swift; sourceTree = "<group>"; };
 		C18CF5DA29D4942700CCC443 /* MediaRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaRow.swift; sourceTree = "<group>"; };
-		C18CF5DD29D55DCB00CCC443 /* EditMode + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EditMode + Ext.swift"; sourceTree = "<group>"; };
+		C18CF5DD29D55DCB00CCC443 /* EditMode+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EditMode+Ext.swift"; sourceTree = "<group>"; };
 		C18CF5E029D571C500CCC443 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -243,7 +243,7 @@
 		C18CF5DC29D55DAA00CCC443 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				C18CF5DD29D55DCB00CCC443 /* EditMode + Ext.swift */,
+				C18CF5DD29D55DCB00CCC443 /* EditMode+Ext.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -326,7 +326,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C18CF5DE29D55DCB00CCC443 /* EditMode + Ext.swift in Sources */,
+				C18CF5DE29D55DCB00CCC443 /* EditMode+Ext.swift in Sources */,
 				C18CF5E129D571C500CCC443 /* Colors.swift in Sources */,
 				C18CF5D229D48E3D00CCC443 /* MediaList.swift in Sources */,
 				C12CCEE429DDA1720027F593 /* RadioModel.swift in Sources */,

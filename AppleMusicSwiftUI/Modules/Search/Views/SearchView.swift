@@ -15,7 +15,6 @@ struct SearchView: View {
         GridItem(.flexible(), spacing: 14),
         GridItem(.flexible(), spacing: 14)
     ]
-
     
     var body: some View {
         NavigationView {
@@ -53,9 +52,14 @@ struct SearchView: View {
                         ) {
                             ForEach(0..<10) { index in
                                 ZStack {
-                                    Rectangle()
-                                        .frame(height: 130)
-                                        .cornerRadius(10)
+                                    NavigationLink {
+                                        DetailSearchView()
+                                    } label: {
+                                        Rectangle()
+                                            .frame(height: 130)
+                                            .cornerRadius(10)
+                                            .foregroundColor(Color.black)
+                                    }
                                     VStack {
                                         Spacer()
                                         Text("Зимнее время")
