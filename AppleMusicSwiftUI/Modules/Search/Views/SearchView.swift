@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SearchView: View {
 
+    @ObservedObject var viewModel = SearchViewModel()
     @State var text = ""
 
     let columns = [
@@ -19,64 +20,64 @@ struct SearchView: View {
     var body: some View {
         NavigationView {
             VStack {
-                TextField("Ваша Медиатека", text: $text)
-                    .padding(10)
-                    .padding(.horizontal, 30)
-                    .background(Colors.gray)
-                    .font(.title3)
-                    .cornerRadius(10)
-                    .padding(.horizontal, 18)
-                    .overlay {
-                        HStack {
-                            Image(systemName: "magnifyingglass")
-                                .foregroundColor(Colors.grayForText)
-                                .frame(
-                                    minWidth: 20,
-                                    maxWidth: .infinity,
-                                    alignment: .leading
-                                )
-                                .padding(.leading, 34)
-                        }
-                    }
-
-                ScrollView(showsIndicators: false) {
-                    LazyVGrid(
-                        columns: columns,
-                        alignment: .leading,
-                        spacing: 14
-                    ) {
-                        Section(
-                            header: Text("Поиск по категориям")
-                                .font(.title2)
-                                .fontWeight(.bold)
-                        ) {
-                            ForEach(0..<10) { index in
-                                ZStack {
-                                    NavigationLink {
-                                        DetailSearchView()
-                                    } label: {
-                                        Rectangle()
-                                            .frame(height: 130)
-                                            .cornerRadius(10)
-                                            .foregroundColor(Color.black)
-                                    }
-                                    VStack {
-                                        Spacer()
-                                        Text("Зимнее время")
-                                            .foregroundColor(.white)
-                                            .fontWeight(.bold)
-                                            .padding(.leading, -10)
-                                            .padding(.bottom, 20)
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    .padding()
-                }
+                textField
+                category
             }
             .navigationTitle("Поиск")
             .padding(.bottom, 80)
+        }
+    }
+
+    var textField: some View {
+        TextField("Ваша Медиатека", text: $text)
+            .padding(10)
+            .padding(.horizontal, 30)
+            .background(Colors.gray)
+            .font(.title3)
+            .cornerRadius(10)
+            .padding(.horizontal, 18)
+            .overlay {
+                HStack {
+                    Image(systemName: "magnifyingglass")
+                        .foregroundColor(Colors.grayForText)
+                        .frame(
+                            minWidth: 20,
+                            maxWidth: .infinity,
+                            alignment: .leading
+                        )
+                        .padding(.leading, 34)
+                }
+            }
+    }
+
+    var category: some View {
+        ScrollView(showsIndicators: false) {
+            LazyVGrid(
+                columns: columns,
+                alignment: .leading,
+                spacing: 14
+            ) {
+                Section(
+                    header: Text("Поиск по категориям")
+                        .font(.title2)
+                        .fontWeight(.bold)
+                ) {
+                    ForEach(viewModel.categoryData) { model in
+                        ZStack {
+                            NavigationLink {
+                                DetailSearchView()
+                            } label: {
+                                Image(model.image)
+                                    .resizable()
+                                    .frame(height: 130)
+                                    .cornerRadius(10)
+                                    .foregroundColor(Color.black)
+                            }
+                        }
+                    }
+                }
+            }
+            .padding()
         }
     }
 }
