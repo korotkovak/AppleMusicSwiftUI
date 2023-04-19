@@ -24,7 +24,6 @@ struct SearchView: View {
                 category
             }
             .navigationTitle(Constants.navigationTitle)
-            .padding(.bottom, 80)
         }
     }
 

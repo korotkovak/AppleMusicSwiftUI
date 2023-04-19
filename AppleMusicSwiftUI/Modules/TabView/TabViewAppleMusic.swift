@@ -8,43 +8,62 @@
 import SwiftUI
 
 struct TabViewAppleMusic: View {
+
+    @State var expand = false
+    @Namespace var animation
+
     var body: some View {
-        TabView {
-            MediaView()
-                .tabItem {
-                    Label(
-                        Constants.titleMedia,
-                        systemImage: Images.iconMedia
-                    )
-                }
-            RadioView()
-                .tabItem {
-                    Label(
-                        Constants.titleRadio,
-                        systemImage: Images.iconRadio
-                    )
-                }
-            SearchView()
-                .tabItem {
-                    Label(
-                        Constants.titleSearch,
-                        systemImage: Images.iconSearch
-                    )
-                }
-        }
-        .accentColor(Color.red)
-        .onAppear() {
-            UITabBar.appearance().backgroundColor = Colors.grayTabBar
-        }
-        .safeAreaInset(edge: .bottom) {
-            PlayerView()
+        ZStack(alignment: Alignment(
+            horizontal: .center,
+            vertical: .bottom)
+        ) {
+            TabView {
+                MediaView()
+                    .tabItem {
+                        Label(
+                            Constants.titleMedia,
+                            systemImage: Images.iconMedia
+                        )
+                    }
+                RadioView()
+                    .tabItem {
+                        Label(
+                            Constants.titleRadio,
+                            systemImage: Images.iconRadio
+                        )
+                    }
+                SearchView()
+                    .tabItem {
+                        Label(
+                            Constants.titleSearch,
+                            systemImage: Images.iconSearch
+                        )
+                    }
+            }
+            .accentColor(Color.red)
+            .onAppear() {
+                UITabBar.appearance().backgroundColor = Colors.grayTabBar
+            }
+
+            PlayerView(
+                expand: $expand, animation: animation
+            )
         }
     }
 }
 
 struct TabViewAppleMusic_Previews: PreviewProvider {
     static var previews: some View {
-        TabViewAppleMusic()
+        ForEach(
+            ["iPhone 14 Pro", "iPhone SE (3rd generation)"],
+            id: \.self
+        ) { deviceName in
+            TabViewAppleMusic()
+                .previewDevice(
+                    PreviewDevice(rawValue: deviceName)
+                )
+                .previewDisplayName(deviceName)
+        }
     }
 }
 

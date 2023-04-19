@@ -8,62 +8,70 @@
 import SwiftUI
 
 struct PlayerView: View {
+
+    @Binding var expand: Bool
+    var animation: Namespace.ID
+
+    @State var height = UIScreen.main.bounds.height / 3
+    @State var offset: CGFloat = 0
+
     var body: some View {
-        VStack {
-            ZStack(alignment: .leading) {
-                Rectangle()
-                    .fill(Colors.gray)
-
-                HStack(spacing: 0) {
-                    Image(Images.iconMusicPlug)
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .frame(width: 52, height: 52)
-                        .cornerRadius(5)
-                        .shadow(color: Colors.darkGray, radius: 5)
-                    Text(Constants.title)
-                        .lineLimit(1)
-                        .padding(.horizontal, 15)
-                    Spacer(minLength: 0)
-                    Button {
-                        //тут пока пусто
-                    } label: {
-                        Image(systemName: Images.iconPlay)
-                            .font(.title2)
-                            .foregroundColor(Colors.black)
+        if expand {
+            ExpandPlayer(height: $height)
+                .frame(maxHeight: .infinity)
+                .background(
+                    VStack(spacing: 0) {
+                        BlurView()
+                        Divider()
                     }
-                    Button {
-                        //тут пока пусто
-                    } label: {
-                        Image(systemName: Images.iconForward)
-                            .font(.title2)
-                            .foregroundColor(Colors.grayForText)
+                )
+                .cornerRadius(20)
+                .offset(y: 0)
+                .offset(y: offset)
+                .gesture(
+                    DragGesture()
+                        .onEnded(onended(value:))
+                        .onChanged(onchanged(value:))
+                )
+                .ignoresSafeArea()
+        } else {
+            MiniPlayer()
+                .frame(maxHeight: 70)
+                .background(
+                    VStack(spacing: 0) {
+                        BlurView()
+                        Divider()
                     }
-                    .padding(.leading, 25)
-                }
-                .padding([.horizontal, .leading], 20.0)
-            }
-            .frame(height: 70)
-            .offset(y: -49)
+                        .onTapGesture(
+                            perform: {
+                                withAnimation(.spring()) {
+                                    expand.toggle()
+                                }
+                            }
+                        )
+                )
+                .offset(y: -49)
         }
-
-        Divider()
-            .padding(.top, -15.0)
     }
-}
 
-struct PlayerWindow_Previews: PreviewProvider {
-    static var previews: some View {
-        PlayerView()
+    func onchanged(value: DragGesture.Value) {
+        if value.translation.height > 0 && expand {
+            offset = value.translation.height
+        }
     }
-}
 
-fileprivate enum Constants {
-    static let title = "Не исполняется"
-}
-
-fileprivate enum Images {
-    static let iconMusicPlug = "music_plug"
-    static let iconPlay = "play.fill"
-    static let iconForward = "forward.fill"
+    func onended(value: DragGesture.Value) {
+        withAnimation(
+            .interactiveSpring(
+                response: 0.5,
+                dampingFraction: 0.95,
+                blendDuration: 0.95
+            )
+        ) {
+            if value.translation.height > height {
+                expand = false
+            }
+            offset = 0
+        }
+    }
 }
