@@ -38,7 +38,7 @@ struct DetailSearchView: View {
                         labelButton: ""
                     )
                 }
-                .padding(.bottom, 20)
+                .padding(.bottom, 10)
             }
             .offset(y: -60)
             .navigationBarBackButtonHidden(true)

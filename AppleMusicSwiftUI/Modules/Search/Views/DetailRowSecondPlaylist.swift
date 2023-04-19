@@ -61,6 +61,7 @@ struct DetaiSecondlRowPlaylist: View {
                 }
                 .padding(.leading, 20)
                 .padding(.trailing, 1)
+                .padding(.bottom, 10)
             }
         }
         .padding(.top, 20)

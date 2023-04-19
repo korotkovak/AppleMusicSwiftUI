@@ -65,37 +65,37 @@ class DetailSearchViewModel: ObservableObject {
                 header: nil,
                 title: "Hip-Hop",
                 description: "Apple music hip-hop",
-                image: "hip-hop"
+                image: "hip-hop-row"
             ),
             DetailSearchModel(
                 header: nil,
                 title: "Hits",
                 description: "Apple music hits",
-                image: "hits"
+                image: "hits-row"
             ),
             DetailSearchModel(
                 header: nil,
                 title: "Jazz",
                 description: "Apple music jazz",
-                image: "jazz"
+                image: "jazz-row"
             ),
             DetailSearchModel(
                 header: nil,
                 title: "Pop",
                 description: "Apple music pop",
-                image: "pop"
+                image: "pop-row"
             ),
             DetailSearchModel(
                 header: nil,
                 title: "Rock",
                 description: "Apple music rock",
-                image: "rock"
+                image: "rock-row"
             ),
             DetailSearchModel(
                 header: nil,
                 title: "Spatial Audio",
                 description: "Apple music spatial",
-                image: "spatial-audio"
+                image: "spatial-audio-row"
             )
         ]
         detailSecondRowData.append(contentsOf: data)
