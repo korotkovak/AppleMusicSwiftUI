@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ExpandPlayer: View {
 
-    @Binding var height: CGFloat
+    @State var height: CGFloat
     @State var volume: CGFloat = 0
     
     var body: some View {

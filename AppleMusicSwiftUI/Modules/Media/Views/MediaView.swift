@@ -19,7 +19,10 @@ struct MediaView: View {
                 case true:
                     MediaList()
                 case false:
-                    MediaPlug()
+                    PlugView(
+                        title: Constants.titlePlug,
+                        description: Constants.descriptionPlug
+                    )
                 }
             }
             .navigationTitle(Constants.title)
@@ -30,8 +33,8 @@ struct MediaView: View {
                 } label: {
                     Text(isEditing ?
                          Constants.doneButton : Constants.editButton)
-                        .fontWeight(.bold)
-                        .foregroundColor(Colors.red)
+                    .fontWeight(.bold)
+                    .foregroundColor(Colors.red)
                 })
             .environment(\.editMode, $editMode)
             .padding(.bottom, 80)
@@ -49,4 +52,6 @@ fileprivate enum Constants {
     static let editButton = "Править"
     static let doneButton = "Готово"
     static let title = "Медиатека"
+    static let titlePlug = "Ищите свою музыку?"
+    static let descriptionPlug = "Здесь появится купленная Вами в iTunes Store музыка."
 }
