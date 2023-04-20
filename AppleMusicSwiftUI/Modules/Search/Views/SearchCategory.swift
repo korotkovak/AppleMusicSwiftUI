@@ -11,7 +11,7 @@ struct SearchCategory: View {
     
     @ObservedObject var viewModel = SearchViewModel()
 
-    let columns = [
+    private let columns = [
         GridItem(.flexible(), spacing: 14),
         GridItem(.flexible(), spacing: 14)
     ]

@@ -1,5 +1,5 @@
 //
-//  ViewModel.swift
+//  MediaViewModel.swift
 //  AppleMusicSwiftUI
 //
 //  Created by Kristina Korotkova on 30/03/23.
@@ -7,16 +7,16 @@
 
 import Foundation
 
-class MediaViewModel: ObservableObject {
+final class MediaViewModel: ObservableObject {
 
-    @Published var mediaModelArray = [MediaModel]()
+    @Published var mediaData = [MediaModel]()
 
     init() {
         getData()
     }
 
-    func getData() {
-        let newData = [
+    private func getData() {
+        let data = [
             MediaModel(
                 icon: "music.note.list",
                 title: "Плейлисты",
@@ -73,16 +73,16 @@ class MediaViewModel: ObservableObject {
                 isSelected: false
             )
         ]
-        mediaModelArray.append(contentsOf: newData)
+        mediaData.append(contentsOf: data)
     }
 
     func move(from source: IndexSet, to destination: Int) {
-        mediaModelArray.move(fromOffsets: source, toOffset: destination)
+        mediaData.move(fromOffsets: source, toOffset: destination)
     }
 
     func update(model: MediaModel) {
-        if let index = mediaModelArray.firstIndex(where: { $0.id == model.id }) {
-            mediaModelArray[index] = model.updateCompletion()
+        if let index = mediaData.firstIndex(where: { $0.id == model.id }) {
+            mediaData[index] = model.updateCompletion()
         }
     }
 }

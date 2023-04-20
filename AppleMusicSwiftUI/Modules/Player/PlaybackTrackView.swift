@@ -34,7 +34,6 @@ struct PlaybackTrackView: View {
     }
 }
 
-
 fileprivate enum Images {
     static let iconPlay = "play.fill"
     static let iconForward = "forward.fill"

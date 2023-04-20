@@ -8,12 +8,11 @@
 import SwiftUI
 
 struct SearchView: View {
-
-    @ObservedObject var detailViewModel = DetailSearchViewModel()
-    @State var selectedSide = 0
-    @State var searchText = ""
-    @State var isEditing = false
-
+    
+    @State private var selectedSide = 0
+    @State private var searchText = ""
+    @State private var isEditing = false
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -26,7 +25,7 @@ struct SearchView: View {
                         Spacer()
                     }
                 }
-
+                
                 HStack {
                     SearchTextField(
                         searchText: $searchText,
@@ -37,7 +36,7 @@ struct SearchView: View {
                             isEditing.toggle()
                         }
                     }
-
+                    
                     if isEditing {
                         Spacer(minLength: 5)
                         Button {
@@ -50,7 +49,7 @@ struct SearchView: View {
                         .padding(.trailing, 20)
                     }
                 }
-
+                
                 if isEditing {
                     VStack {
                         SearchBar(selectedSide: $selectedSide)

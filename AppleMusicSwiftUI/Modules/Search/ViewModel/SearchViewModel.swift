@@ -7,7 +7,7 @@
 
 import Foundation
 
-class SearchViewModel: ObservableObject {
+final class SearchViewModel: ObservableObject {
 
     @Published var categoryData = [SearchModel]()
 
@@ -15,7 +15,7 @@ class SearchViewModel: ObservableObject {
         getCategoryData()
     }
 
-    func getCategoryData() {
+    private func getCategoryData() {
         let data = [
             SearchModel(image: "2010s"),
             SearchModel(image: "charts"),

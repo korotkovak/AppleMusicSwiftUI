@@ -7,18 +7,18 @@
 
 import Foundation
 
-class DetailSearchViewModel: ObservableObject {
+final class DetailSearchViewModel: ObservableObject {
     
-    @Published var detailPaylistData = [DetailSearchModel]()
-    @Published var detailSecondRowData = [DetailSearchModel]()
+    @Published var detailData = [DetailSearchModel]()
+    @Published var detailSetPlaylistData = [DetailSearchModel]()
     @Published var searchResult: [DetailSearchModel] = []
     
     init() {
-        getPaylistData()
-        getSecondRowData()
+        getDetailData()
+        getdetailSetPlaylistData()
     }
     
-    func getPaylistData() {
+    private func getDetailData() {
         let data = [
             DetailSearchModel(
                 header: "Now in spatial audio",
@@ -57,10 +57,10 @@ class DetailSearchViewModel: ObservableObject {
                 image: "imageSix"
             )
         ]
-        detailPaylistData.append(contentsOf: data)
+        detailData.append(contentsOf: data)
     }
     
-    func getSecondRowData() {
+    private func getdetailSetPlaylistData() {
         let data = [
             DetailSearchModel(
                 header: nil,
@@ -99,6 +99,6 @@ class DetailSearchViewModel: ObservableObject {
                 image: "spatial-audio-row"
             )
         ]
-        detailSecondRowData.append(contentsOf: data)
+        detailSetPlaylistData.append(contentsOf: data)
     }
 }

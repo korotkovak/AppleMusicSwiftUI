@@ -9,8 +9,8 @@ import SwiftUI
 
 struct TabViewAppleMusic: View {
 
-    @State var expand = false
-    @Namespace var animation
+    @State private var expand = false
+    @Namespace private var animation
 
     var body: some View {
         ZStack(alignment: Alignment(
