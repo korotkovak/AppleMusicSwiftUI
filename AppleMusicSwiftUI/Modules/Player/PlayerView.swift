@@ -1,5 +1,5 @@
 //
-//  PlayerWindow.swift
+//  PlayerView.swift
 //  AppleMusicSwiftUI
 //
 //  Created by Kristina Korotkova on 29/03/23.
@@ -7,13 +7,14 @@
 
 import SwiftUI
 
-struct PlayerView: View {
+struct PlayerView: View, KeyboardReadable {
 
     @Binding var expand: Bool
     var animation: Namespace.ID
 
-    @State var height = UIScreen.main.bounds.height / 3
-    @State var offset: CGFloat = 0
+    @State private var isKeyboardVisible = false
+    @State private var height = UIScreen.main.bounds.height / 3
+    @State private var offset: CGFloat = 0
 
     var body: some View {
         if expand {
@@ -50,17 +51,20 @@ struct PlayerView: View {
                             }
                         )
                 )
-                .offset(y: -49)
+                .onReceive(keyboardPublisher) { newIsKeyboardVisible in
+                    isKeyboardVisible = newIsKeyboardVisible
+                }
+                .offset(y: isKeyboardVisible ? 0 : -49)
         }
     }
 
-    func onchanged(value: DragGesture.Value) {
+    private func onchanged(value: DragGesture.Value) {
         if value.translation.height > 0 && expand {
             offset = value.translation.height
         }
     }
 
-    func onended(value: DragGesture.Value) {
+    private func onended(value: DragGesture.Value) {
         withAnimation(
             .interactiveSpring(
                 response: 0.5,

@@ -1,5 +1,5 @@
 //
-//  LibraryList.swift
+//  MediaList.swift
 //  AppleMusicSwiftUI
 //
 //  Created by Kristina Korotkova on 29/03/23.
@@ -9,19 +9,19 @@ import SwiftUI
 
 struct MediaList: View {
 
-    @ObservedObject var mediaViewModel = MediaViewModel()
+    @ObservedObject var viewModel = MediaViewModel()
 
     var body: some View {
         List {
-            ForEach(mediaViewModel.mediaModelArray) { mediaModel in
-                MediaRow(model: mediaModel)
+            ForEach(viewModel.mediaData) { model in
+                MediaRow(model: model)
                     .onTapGesture {
                         withAnimation {
-                            mediaViewModel.update(model: mediaModel)
+                            viewModel.update(model: model)
                         }
                     }
             }
-            .onMove(perform: mediaViewModel.move)
+            .onMove(perform: viewModel.move)
             .listRowSeparator(.hidden, edges: .all)
             .frame(height: 0, alignment: .trailing)
         }

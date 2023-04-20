@@ -1,5 +1,5 @@
 //
-//  LibraryView.swift
+//  MediaView.swift
 //  AppleMusicSwiftUI
 //
 //  Created by Kristina Korotkova on 29/03/23.
@@ -9,8 +9,8 @@ import SwiftUI
 
 struct MediaView: View {
 
-    @State var editMode: EditMode = .inactive
-    @State var isEditing = false
+    @State private var editMode: EditMode = .inactive
+    @State private var isEditing = false
 
     var body: some View {
         NavigationView {

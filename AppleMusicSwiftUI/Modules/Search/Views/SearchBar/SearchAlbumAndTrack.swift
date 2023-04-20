@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SearchAlbumAndTrack: View {
+struct SearchAlbumAndTrack: View, KeyboardReadable {
 
     @ObservedObject var viewModel = DetailSearchViewModel()
     @Binding var searchText: String
@@ -21,7 +21,7 @@ struct SearchAlbumAndTrack: View {
             LazyVGrid(columns: columns, alignment: .leading) {
 
                 ForEach(
-                    viewModel.detailPaylistData
+                    viewModel.detailData
                         .filter {
                             "\($0)"
                                 .lowercased()
@@ -32,7 +32,7 @@ struct SearchAlbumAndTrack: View {
                     id: \.id
                 ) { model in
 
-                    RowTrack(
+                    TrackRow(
                         icon: model.image,
                         title: model.title,
                         description: model.description
@@ -40,7 +40,7 @@ struct SearchAlbumAndTrack: View {
                 }
 
                 ForEach(
-                    viewModel.detailSecondRowData
+                    viewModel.detailSetPlaylistData
                         .filter {
                             "\($0)"
                                 .lowercased()
@@ -50,7 +50,7 @@ struct SearchAlbumAndTrack: View {
                         },
                     id: \.id
                 ) { model in
-                    RowAlbum(
+                    AlbumRow(
                         icon: model.image,
                         title: model.title,
                         description: model.description

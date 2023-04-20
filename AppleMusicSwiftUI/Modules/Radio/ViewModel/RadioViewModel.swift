@@ -7,7 +7,7 @@
 
 import Foundation
 
-class RadioViewModel: ObservableObject {
+final class RadioViewModel: ObservableObject {
 
     @Published var radioPlaylistData = [RadioModel]()
     @Published var radioStationsData = [RadioModel]()
@@ -17,8 +17,8 @@ class RadioViewModel: ObservableObject {
         getRadioStationsData()
     }
 
-    func getRadioPlaylistData() {
-        let newData = [
+    private func getRadioPlaylistData() {
+        let data = [
             RadioModel(
                 header: "Эксклюзив",
                 title: "Коллекция радиошоу Beats 1",
@@ -62,11 +62,11 @@ class RadioViewModel: ObservableObject {
                 image: "audiosystem-radio"
             )
         ]
-        radioPlaylistData.append(contentsOf: newData)
+        radioPlaylistData.append(contentsOf: data)
     }
 
-    func getRadioStationsData() {
-        let newData = [
+    private func getRadioStationsData() {
+        let data = [
             RadioModel(
                 header: nil,
                 title: "Популярное",
@@ -92,6 +92,6 @@ class RadioViewModel: ObservableObject {
                 image: "dance-music"
             )
         ]
-        radioStationsData.append(contentsOf: newData)
+        radioStationsData.append(contentsOf: data)
     }
 }

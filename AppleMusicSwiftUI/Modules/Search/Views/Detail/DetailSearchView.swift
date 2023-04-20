@@ -12,7 +12,7 @@ struct DetailSearchView: View {
     @ObservedObject var viewModel = DetailSearchViewModel()
     @Environment(\.dismiss) private var dismiss
 
-    let rows = [
+    private let rows = [
         GridItem(.flexible())
     ]
 
@@ -29,11 +29,11 @@ struct DetailSearchView: View {
 
                 ScrollView() {
                     playlistView
-                    DetaiSecondlRowPlaylist(
+                    DetailSetPlaylist(
                         titleHeader: Constants.headerTitleFirst,
                         labelButton: Constants.titleButton
                     )
-                    DetaiSecondlRowPlaylist(
+                    DetailSetPlaylist(
                         titleHeader: Constants.headerTitleSecond,
                         labelButton: ""
                     )
@@ -53,9 +53,7 @@ struct DetailSearchView: View {
                     }
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button {
-                        print("tupped navigationBarTrailing")
-                    } label: {
+                    Button {} label: {
                         HStack {
                             Image(systemName: Constants.imageEllipsisCircle)
                                 .foregroundColor(Colors.red)
@@ -67,32 +65,16 @@ struct DetailSearchView: View {
         .padding(.bottom, 60)
     }
 
-    var playlistView: some View {
+    private var playlistView: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             LazyHGrid(rows: rows) {
-                ForEach(viewModel.detailPaylistData) { model in
-                    VStack(alignment: .leading) {
-                        Text(model.header ?? "")
-                            .font(.footnote)
-                            .textCase(.uppercase)
-                            .foregroundColor(Colors.grayForText)
-                        Spacer()
-                            .frame(height: 3)
-                        Text(model.title)
-                            .font(.title2)
-                        Spacer()
-                            .frame(height: 3)
-                        Text(model.description)
-                            .font(.title2)
-                            .foregroundColor(Colors.grayForText)
-                        Image(model.image)
-                            .resizable()
-                            .scaledToFill()
-                            .frame(width: 350, height: 250)
-                            .cornerRadius(5)
-                    }
-                    Spacer()
-                        .frame(width: 10)
+                ForEach(viewModel.detailData) { model in
+                    HorizontalPlaylistRow(
+                        header: model.header,
+                        title: model.title,
+                        description: model.description,
+                        image: model.image
+                    )
                 }
             }
             .padding(.leading, 20)

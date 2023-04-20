@@ -1,5 +1,5 @@
 //
-//  DetailRowSecondPlaylist.swift
+//  DetailSetPlaylist.swift
 //  AppleMusicSwiftUI
 //
 //  Created by Kristina Korotkova on 17/04/23.
@@ -7,14 +7,14 @@
 
 import SwiftUI
 
-struct DetaiSecondlRowPlaylist: View {
+struct DetailSetPlaylist: View {
 
     @ObservedObject var viewModel = DetailSearchViewModel()
 
     @State var titleHeader: String
     @State var labelButton: String
 
-    let rows = [
+    private let rows = [
         GridItem(.flexible())
     ]
 
@@ -25,9 +25,7 @@ struct DetaiSecondlRowPlaylist: View {
                     .font(.title2)
                     .fontWeight(.bold)
                 Spacer()
-                Button {
-                    print("Кнопка нажата")
-                } label: {
+                Button {} label: {
                     Text(labelButton)
                         .foregroundColor(Color.red)
                 }
@@ -37,7 +35,7 @@ struct DetaiSecondlRowPlaylist: View {
 
             ScrollView(.horizontal, showsIndicators: false) {
                 LazyHGrid(rows: rows) {
-                    ForEach(viewModel.detailSecondRowData) { model in
+                    ForEach(viewModel.detailSetPlaylistData) { model in
                         VStack {
                             HStack {
                                 Image(model.image)
@@ -70,7 +68,7 @@ struct DetaiSecondlRowPlaylist: View {
 
 struct DetailRowSecondPlaylist_Previews: PreviewProvider {
     static var previews: some View {
-        DetaiSecondlRowPlaylist(
+        DetailSetPlaylist(
             titleHeader: "Настроение - осень",
             labelButton: "См.все"
         )

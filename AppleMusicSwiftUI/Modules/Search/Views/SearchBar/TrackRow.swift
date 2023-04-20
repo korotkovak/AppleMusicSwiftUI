@@ -1,5 +1,5 @@
 //
-//  RowTrack.swift
+//  TrackRow.swift
 //  AppleMusicSwiftUI
 //
 //  Created by Kristina Korotkova on 19/04/23.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct RowTrack: View {
+struct TrackRow: View {
 
     @State var icon: String
     @State var title: String

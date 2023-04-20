@@ -8,20 +8,52 @@
 import SwiftUI
 
 struct RadioView: View {
+
+    @ObservedObject private var viewModel = RadioViewModel()
+
+    private let rows = [
+        GridItem(.flexible())
+    ]
+
+    private let columns = [
+        GridItem(.flexible())
+    ]
+    
     var body: some View {
         NavigationView {
             ScrollView {
                 VStack(alignment: .leading, spacing: 15) {
                     Divider()
                         .padding(.horizontal, 20)
-                    RadioPlaylistView()
+
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        LazyHGrid(rows: rows) {
+                            ForEach(viewModel.radioPlaylistData) { model in
+                                HorizontalPlaylistRow(
+                                    header: model.header,
+                                    title: model.title,
+                                    description: model.description,
+                                    image: model.image
+                                )
+                            }
+                        }
+                        .padding(.leading, 20)
+                    }
+
                     Divider()
                         .padding(.horizontal, 20)
+
                     Text(Constants.title)
                         .font(.title)
                         .fontWeight(.bold)
                         .padding(.leading, 20)
-                    RadioStationsView()
+
+                    LazyVGrid(columns: columns, alignment: .leading) {
+                        ForEach(viewModel.radioStationsData) { model in
+                            RadioStationsRow(model: model)
+                        }
+                        .padding(.horizontal, 20)
+                    }
                 }
                 .padding(.bottom, 80)
             }

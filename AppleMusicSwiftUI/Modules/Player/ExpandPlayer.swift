@@ -10,7 +10,7 @@ import SwiftUI
 struct ExpandPlayer: View {
 
     @State var height: CGFloat
-    @State var volume: CGFloat = 0
+    @State private var volume: CGFloat = 0
     
     var body: some View {
         VStack {
