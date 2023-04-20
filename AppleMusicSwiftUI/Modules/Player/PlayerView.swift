@@ -17,7 +17,7 @@ struct PlayerView: View {
 
     var body: some View {
         if expand {
-            ExpandPlayer(height: $height)
+            ExpandPlayer(height: height)
                 .frame(maxHeight: .infinity)
                 .background(
                     VStack(spacing: 0) {

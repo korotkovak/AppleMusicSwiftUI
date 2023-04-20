@@ -40,7 +40,6 @@ struct DetailSearchView: View {
                 }
                 .padding(.bottom, 10)
             }
-            .offset(y: -60)
             .navigationBarBackButtonHidden(true)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
@@ -65,6 +64,7 @@ struct DetailSearchView: View {
                 }
             }
         }
+        .padding(.bottom, 60)
     }
 
     var playlistView: some View {

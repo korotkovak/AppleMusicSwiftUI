@@ -11,6 +11,7 @@ class DetailSearchViewModel: ObservableObject {
     
     @Published var detailPaylistData = [DetailSearchModel]()
     @Published var detailSecondRowData = [DetailSearchModel]()
+    @Published var searchResult: [DetailSearchModel] = []
     
     init() {
         getPaylistData()

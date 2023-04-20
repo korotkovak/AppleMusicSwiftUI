@@ -9,83 +9,82 @@ import SwiftUI
 
 struct SearchView: View {
 
-    @ObservedObject var viewModel = SearchViewModel()
-    @State var text = ""
+    @ObservedObject var detailViewModel = DetailSearchViewModel()
+    @State var selectedSide = 0
+    @State var searchText = ""
+    @State var isEditing = false
 
-    let columns = [
-        GridItem(.flexible(), spacing: 14),
-        GridItem(.flexible(), spacing: 14)
-    ]
-    
     var body: some View {
         NavigationView {
             VStack {
-                textField
-                category
-            }
-            .navigationTitle(Constants.navigationTitle)
-        }
-    }
-
-    var textField: some View {
-        TextField(Constants.placeholderTextField, text: $text)
-            .padding(10)
-            .padding(.horizontal, 30)
-            .background(Colors.gray)
-            .font(.title3)
-            .cornerRadius(10)
-            .padding(.horizontal, 18)
-            .overlay {
-                HStack {
-                    Image(systemName: Constants.imageSearch)
-                        .foregroundColor(Colors.grayForText)
-                        .frame(
-                            minWidth: 20,
-                            maxWidth: .infinity,
-                            alignment: .leading
-                        )
-                        .padding(.leading, 34)
+                if !isEditing {
+                    HStack {
+                        Text(Constants.navigationTitle)
+                            .font(.largeTitle)
+                            .fontWeight(.bold)
+                            .padding(.leading, 20)
+                        Spacer()
+                    }
                 }
-            }
-    }
 
-    var category: some View {
-        ScrollView(showsIndicators: false) {
-            LazyVGrid(
-                columns: columns,
-                alignment: .leading,
-                spacing: 14
-            ) {
-                Section(
-                    header: Text(Constants.sectionHeader)
-                        .font(.title2)
-                        .fontWeight(.bold)
-                ) {
-                    ForEach(viewModel.categoryData) { model in
-                        ZStack {
-                            NavigationLink {
-                                DetailSearchView()
-                            } label: {
-                                Image(model.image)
-                                    .resizable()
-                                    .frame(height: 130)
-                                    .cornerRadius(10)
-                                    .foregroundColor(Color.black)
+                HStack {
+                    SearchTextField(
+                        searchText: $searchText,
+                        isEditing: $isEditing
+                    )
+                    .onTapGesture {
+                        if !isEditing {
+                            isEditing.toggle()
+                        }
+                    }
+
+                    if isEditing {
+                        Spacer(minLength: 5)
+                        Button {
+                            isEditing.toggle()
+                            searchText = ""
+                        } label: {
+                            Text(Constants.cancelButton)
+                                .foregroundColor(Colors.red)
+                        }
+                        .padding(.trailing, 20)
+                    }
+                }
+
+                if isEditing {
+                    VStack {
+                        SearchBar(selectedSide: $selectedSide)
+                        Spacer(minLength: 30)
+                        
+                        if selectedSide == 0 {
+                            if !searchText.isEmpty {
+                                SearchAlbumAndTrack(searchText: $searchText)
+                            }
+                        } else if selectedSide == 1 {
+                            VStack {
+                                Spacer(minLength: 0)
+                                PlugView(
+                                    title: Constants.textPlug
+                                )
+                                Spacer(minLength: 0)
                             }
                         }
                     }
+                    .padding(.horizontal)
+                } else {
+                    SearchCategory()
                 }
             }
-            .padding()
+            .navigationBarHidden(true)
         }
     }
 }
 
 fileprivate enum Constants {
     static let navigationTitle = "Поиск"
-    static let placeholderTextField = "Ваша Медиатека"
-    static let imageSearch = "magnifyingglass"
-    static let sectionHeader = "Поиск по категориям"
+    static let searchPlaceholderMedia = "Ваша Медиатека"
+    static let cancelButton = "Отменить"
+    static let textPlug = "Страница в разработке"
 }
 
 struct SearchView_Previews: PreviewProvider {
