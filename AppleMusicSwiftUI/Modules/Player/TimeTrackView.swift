@@ -15,7 +15,7 @@ struct TimeTrackView: View {
                     .foregroundColor(Colors.black)
                     .frame(width: 8, height: 8)
                 Capsule()
-                    .foregroundColor(Colors.darkGray)
+                    .foregroundColor(Colors.darkGrayKit)
                     .frame(height: 3)
             }
             HStack {

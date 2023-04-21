@@ -32,7 +32,7 @@ struct TabViewAppleMusic: View {
                             systemImage: Images.iconRadio
                         )
                     }
-                SearchView()
+                SearchViewRepresentable()
                     .tabItem {
                         Label(
                             Constants.titleSearch,
