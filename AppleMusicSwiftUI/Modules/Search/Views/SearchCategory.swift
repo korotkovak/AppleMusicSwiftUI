@@ -37,7 +37,6 @@ struct SearchCategory: View {
                                     .resizable()
                                     .frame(height: 130)
                                     .cornerRadius(10)
-                                    .foregroundColor(Color.black)
                             }
                         }
                     }

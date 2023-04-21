@@ -22,7 +22,7 @@ struct MediaRow: View {
                 .scaledToFit()
                 .foregroundColor(
                     model.isSelected ?
-                    Colors.red : Colors.darkGray
+                    Colors.red : Colors.darkGrayKit
                 )
                 .frame(width: 22, height: 22)
 

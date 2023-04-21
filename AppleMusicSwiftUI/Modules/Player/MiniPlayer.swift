@@ -16,7 +16,7 @@ struct MiniPlayer: View {
                     .aspectRatio(contentMode: .fill)
                     .frame(width: 52, height: 52)
                     .cornerRadius(5)
-                    .shadow(color: Colors.darkGray, radius: 5)
+                    .shadow(color: Colors.darkGrayKit, radius: 5)
 
                 Text(Constants.title)
                     .fontWeight(.bold)

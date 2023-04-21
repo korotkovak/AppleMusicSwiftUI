@@ -16,7 +16,7 @@ struct ExpandPlayer: View {
         VStack {
             Group {
                 Capsule()
-                    .fill(Colors.darkGray)
+                    .fill(Colors.darkGrayKit)
                     .frame(width: 40, height: 4)
                     .opacity(1)
                     .padding(.top, 60)
@@ -28,7 +28,7 @@ struct ExpandPlayer: View {
                     .aspectRatio(contentMode: .fill)
                     .frame(width: height, height: height)
                     .cornerRadius(5)
-                    .shadow(color: Colors.darkGray, radius: 5)
+                    .shadow(color: Colors.darkGrayKit, radius: 5)
 
                 Spacer(minLength: 20)
 
@@ -47,7 +47,7 @@ struct ExpandPlayer: View {
                     Spacer()
                     Button {} label: {
                         Image(systemName: Images.iconEllipsisCircle)
-                            .foregroundColor(Colors.darkGray)
+                            .foregroundColor(Colors.darkGrayKit)
                             .font(.title)
                     }
                 }

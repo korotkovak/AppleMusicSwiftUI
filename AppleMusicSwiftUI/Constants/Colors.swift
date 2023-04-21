@@ -16,9 +16,11 @@ enum Colors {
         alpha: 1
     )
     
-    static let gray = Color.init(uiColor: grayTabBar)
-    static let darkGray = Color.init(uiColor: UIColor.systemGray4)
+    static let grayKit = Color.init(uiColor: grayTabBar)
+    static let systemGrayKit = UIColor.systemGray5
+    static let darkGrayKit = Color.init(uiColor: UIColor.systemGray4)
     static let grayForText = Color.gray
     static let red = Color.red
     static let black = Color.black
+    static let blackKit = UIColor.black
 }

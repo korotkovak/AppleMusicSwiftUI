@@ -22,7 +22,7 @@ struct SearchTextField: View {
                 )
                 .padding(10)
                 .padding(.horizontal, 30)
-                .background(Colors.gray)
+                .background(Colors.grayKit)
                 .font(.system(size: 14))
                 .cornerRadius(10)
                 .padding(.horizontal, 20)
