@@ -9,18 +9,21 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
-        }
-        .padding()
+        TabViewAppleMusic()
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ForEach(
+            ["iPhone 14 Pro", "iPhone SE (3rd generation)"],
+            id: \.self
+        ) { deviceName in
+            ContentView()
+                .previewDevice(
+                    PreviewDevice(rawValue: deviceName)
+                )
+                .previewDisplayName(deviceName)
+        }
     }
 }
